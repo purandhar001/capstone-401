@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Questions</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Time!</h1>
+        <form action="/submit-quiz" method="POST">
+            <input type="hidden" name="questions" value="<%= JSON.stringify(questions) %>">
+            
+            <% questions.forEach((question, index) => { %>
+                <div class="question-card">
+                    <h3>Question <%= index + 1 %>:</h3>
+                    <p><%= question.question %></p>
+                    
+                    <div class="answers">
+                        <% question.shuffledAnswers.forEach(answer => { %>
+                            <div class="answer-option">
+                                <input type="radio" 
+                                       id="q<%= index %>-<%= answer %>" 
+                                       name="q<%= index %>" 
+                                       value="<%= answer %>" required>
+                                <label for="q<%= index %>-<%= answer %>"><%= answer %></label>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% }); %>
+            
+            <button type="submit">Submit Answers</button>
+        </form>
+    </div>
+</body>
+</html>
