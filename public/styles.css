@@ -20,6 +20,16 @@ body {
     text-align: center;
 }
 
+.lb-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #FBFBFB;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(197, 186, 255, 0.2);
+    text-align: center;
+}
+
 h1 {
     text-align: center;
     color: #333;
